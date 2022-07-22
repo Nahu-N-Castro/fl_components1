@@ -33,7 +33,7 @@ class Listview1Screen extends StatelessWidget {
                 ),
               )
               .toList(),
-          Divider(),
+          const Divider(),
         ],
       ),
     );
