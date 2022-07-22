@@ -21,6 +21,17 @@ class AppTheme {
       style: TextButton.styleFrom(primary: primary),
     ),
     scaffoldBackgroundColor: Colors.black,
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: primary,
+      elevation: 0,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        primary: AppTheme.primary,
+        elevation: 0,
+        shape: const StadiumBorder(),
+      ),
+    ),
   );
   static const BouncingScrollPhysics bouncing = BouncingScrollPhysics(
     parent: AlwaysScrollableScrollPhysics(),
