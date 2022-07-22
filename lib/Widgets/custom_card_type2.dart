@@ -1,8 +1,14 @@
-import 'package:fl_components/Theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:fl_components/Theme/app_theme.dart';
 
 class CustomCardType2 extends StatelessWidget {
-  const CustomCardType2({Key? key}) : super(key: key);
+  final String imageUrl;
+  final String? textImage;
+
+  const CustomCardType2({Key? key, required this.imageUrl, this.textImage})
+      : super(
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -15,24 +21,24 @@ class CustomCardType2 extends StatelessWidget {
       shadowColor: AppTheme.primary.withOpacity(0.3),
       child: Column(
         children: [
-          const FadeInImage(
-            image: NetworkImage(
-                'https://i.pinimg.com/564x/10/6e/65/106e6554e445f91c2847ef7daffb0b17.jpg'),
-            placeholder: AssetImage('assets/jar-loading.gif'),
+          FadeInImage(
+            image: NetworkImage(imageUrl),
+            placeholder: const AssetImage('assets/jar-loading.gif'),
             width: double.infinity,
             height: 230,
             fit: BoxFit.cover,
-            fadeInDuration: Duration(milliseconds: 300),
+            fadeInDuration: const Duration(milliseconds: 300),
           ),
-          Container(
-            alignment: AlignmentDirectional.centerEnd,
-            padding: const EdgeInsets.only(
-              top: 10,
-              bottom: 10,
-              right: 20,
+          if (textImage != null)
+            Container(
+              alignment: AlignmentDirectional.centerEnd,
+              padding: const EdgeInsets.only(
+                top: 10,
+                bottom: 10,
+                right: 20,
+              ),
+              child: Text(textImage!),
             ),
-            child: const Text('Un Hermoso Paisaje'),
-          ),
         ],
       ),
     );
