@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fl_components/Theme/app_theme.dart';
 
 class Listview2Screen extends StatelessWidget {
   final options = const [
@@ -19,17 +20,12 @@ class Listview2Screen extends StatelessWidget {
           'Listview Tipo 2',
           textAlign: TextAlign.center,
         ),
-        elevation: 0,
-        backgroundColor: Colors.redAccent,
         centerTitle: true,
       ),
       body: ListView.separated(
         itemCount: options.length,
         itemBuilder: (context, i) => ListTile(
-          leading: const Icon(
-            Icons.gamepad_outlined,
-            color: Colors.black,
-          ),
+          leading: const Icon(Icons.gamepad_outlined, color: AppTheme.primary),
           title: Text(options[i]),
           trailing: const Icon(
             Icons.arrow_forward_ios_outlined,
