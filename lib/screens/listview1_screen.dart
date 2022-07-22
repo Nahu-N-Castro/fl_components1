@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../Theme/app_theme.dart';
+
 class Listview1Screen extends StatelessWidget {
   final options = const [
     'Megaman',
@@ -21,6 +23,7 @@ class Listview1Screen extends StatelessWidget {
         centerTitle: true,
       ),
       body: ListView(
+        physics: AppTheme.bouncing,
         children: [
           ...options
               .map<Widget>(

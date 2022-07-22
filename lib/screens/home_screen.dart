@@ -16,9 +16,10 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: ListView.separated(
+        physics: AppTheme.bouncing,
         itemBuilder: (context, index) => ListTile(
           leading:
-              Icon(AppRoutes.menuOptions[index].icon, color:AppTheme.primary),
+              Icon(AppRoutes.menuOptions[index].icon, color: AppTheme.primary),
           title: Text(AppRoutes.menuOptions[index].name),
           onTap: () {
             // final route = MaterialPageRoute(

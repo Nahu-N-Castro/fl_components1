@@ -23,6 +23,7 @@ class Listview2Screen extends StatelessWidget {
         centerTitle: true,
       ),
       body: ListView.separated(
+        physics: AppTheme.bouncing,
         itemCount: options.length,
         itemBuilder: (context, i) => ListTile(
           leading: const Icon(Icons.gamepad_outlined, color: AppTheme.primary),

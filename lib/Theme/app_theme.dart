@@ -5,11 +5,24 @@ class AppTheme {
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     primaryColor: primary,
-    appBarTheme: const AppBarTheme(color: Colors.redAccent, elevation: 0),
+    appBarTheme: const AppBarTheme(
+      color: Colors.redAccent,
+      elevation: 0,
+    ),
   );
 
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
-      primaryColor: primary,
-      appBarTheme: const AppBarTheme(color: Colors.redAccent, elevation: 0),
-      scaffoldBackgroundColor: Colors.black);
+    primaryColor: primary,
+    appBarTheme: const AppBarTheme(
+      color: Colors.redAccent,
+      elevation: 0,
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(primary: primary),
+    ),
+    scaffoldBackgroundColor: Colors.black,
+  );
+  static const BouncingScrollPhysics bouncing = BouncingScrollPhysics(
+    parent: AlwaysScrollableScrollPhysics(),
+  );
 }
