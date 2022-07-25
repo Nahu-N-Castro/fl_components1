@@ -11,7 +11,7 @@ class AppTheme {
     ),
   );
 
-  static final ThemeData darkTheme = ThemeData.dark().copyWith(
+  static final ThemeData darkTheme = ThemeData.light().copyWith(
     primaryColor: primary,
     appBarTheme: const AppBarTheme(
       color: Colors.redAccent,
@@ -20,7 +20,7 @@ class AppTheme {
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(primary: primary),
     ),
-    scaffoldBackgroundColor: Colors.black,
+    // scaffoldBackgroundColor: Colors.black,
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: primary,
       elevation: 0,

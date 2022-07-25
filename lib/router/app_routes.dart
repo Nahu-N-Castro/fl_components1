@@ -1,6 +1,6 @@
-import 'package:fl_components/Models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_components/screens/screens.dart';
+import 'package:fl_components/Models/models.dart';
 
 class AppRoutes {
   static const initialRoute = 'home';
@@ -31,6 +31,16 @@ class AppRoutes {
         name: 'Tarjetas',
         screen: const CardScreen(),
         icon: Icons.credit_card),
+    MenuOption(
+        route: 'avatar',
+        name: 'Avatar Circular',
+        screen: const AvatarScreen(),
+        icon: Icons.supervised_user_circle_outlined),
+    MenuOption(
+        route: 'animated',
+        icon: Icons.animation,
+        name: 'Animated',
+        screen: const AnimatedScreen())
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
