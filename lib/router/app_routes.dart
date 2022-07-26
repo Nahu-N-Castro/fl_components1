@@ -20,17 +20,17 @@ class AppRoutes {
         route: 'listview2',
         name: 'Listview Tipo 2',
         screen: const Listview2Screen(),
-        icon: Icons.list),
+        icon: Icons.list_outlined),
     MenuOption(
         route: 'alert',
         name: 'Alertas ',
         screen: const AlertScreen(),
-        icon: Icons.add_alert_rounded),
+        icon: Icons.add_alert_outlined),
     MenuOption(
         route: 'card',
         name: 'Tarjetas',
         screen: const CardScreen(),
-        icon: Icons.credit_card),
+        icon: Icons.credit_card_outlined),
     MenuOption(
         route: 'avatar',
         name: 'Avatar Circular',
@@ -38,7 +38,7 @@ class AppRoutes {
         icon: Icons.supervised_user_circle_outlined),
     MenuOption(
         route: 'animated',
-        icon: Icons.animation,
+        icon: Icons.animation_outlined,
         name: 'Animated',
         screen: const AnimatedScreen()),
     MenuOption(
@@ -51,6 +51,11 @@ class AppRoutes {
         icon: Icons.slideshow,
         name: 'Slider & Checks',
         screen: const SliderScreen()),
+    MenuOption(
+        route: 'listviewbuilder',
+        icon: Icons.build_outlined,
+        name: 'Listview Builder',
+        screen: const ListviewBuilderScreen()),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
