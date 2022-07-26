@@ -32,6 +32,20 @@ class AppTheme {
         shape: const StadiumBorder(),
       ),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      floatingLabelStyle: const TextStyle(color: primary),
+      enabledBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: primary),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: primary),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+    ),
   );
   static const BouncingScrollPhysics bouncing = BouncingScrollPhysics(
     parent: AlwaysScrollableScrollPhysics(),
