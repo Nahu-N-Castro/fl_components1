@@ -10,6 +10,9 @@ class CustomInputField extends StatelessWidget {
   final TextInputType? inputType;
   final bool obscureText;
 
+  final String formProperty;
+  final Map<String, String> formValues;
+
   const CustomInputField({
     Key? key,
     this.labelText,
@@ -20,6 +23,8 @@ class CustomInputField extends StatelessWidget {
     this.color,
     this.inputType,
     this.obscureText = false,
+    required this.formProperty,
+    required this.formValues,
   }) : super(key: key);
 
   @override
@@ -30,7 +35,7 @@ class CustomInputField extends StatelessWidget {
       autofocus: false,
       initialValue: '',
       textCapitalization: TextCapitalization.words,
-      onChanged: (value) => debugPrint('value:$value'),
+      onChanged: (value) => formValues[formProperty] = value,
       validator: (value) {
         if (value == null) return 'Campo obligatorio';
         return value.length < 3 ? 'Mínimo 3 caracteres' : null;

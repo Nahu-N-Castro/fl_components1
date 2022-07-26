@@ -29,37 +29,68 @@ class InputsScreen extends StatelessWidget {
             key: myFormKey,
             child: Column(
               children: [
-                const CustomInputField(
+                CustomInputField(
                   labelText: 'Nombre',
                   hintText: 'Su Nombre',
                   icon: Icons.person_outline,
                   color: Colors.redAccent,
+                  formProperty: 'name',
+                  formValues: formValues,
                 ),
                 const SizedBox(height: 30),
-                const CustomInputField(
+                CustomInputField(
                   labelText: 'Apellido',
                   hintText: 'Su Apellido',
                   icon: Icons.person_add_outlined,
                   color: Colors.redAccent,
+                  formProperty: 'last_name',
+                  formValues: formValues,
                 ),
                 const SizedBox(height: 30),
-                const CustomInputField(
+                CustomInputField(
                   labelText: 'Email',
                   hintText: 'Su Email',
                   icon: Icons.email_outlined,
                   color: Colors.redAccent,
                   inputType: TextInputType.emailAddress,
+                  formProperty: 'email',
+                  formValues: formValues,
                 ),
                 const SizedBox(height: 30),
-                const CustomInputField(
+                CustomInputField(
                   labelText: 'Password',
                   hintText: 'Su Password',
                   icon: Icons.lock_outline,
                   color: Colors.redAccent,
                   inputType: TextInputType.visiblePassword,
                   obscureText: true,
+                  formProperty: 'password',
+                  formValues: formValues,
                 ),
                 const SizedBox(height: 20),
+                DropdownButtonFormField<String>(
+                  value: 'Admin',
+                  items: const [
+                    DropdownMenuItem(
+                      value: 'Admin',
+                      child: Text('Admin'),
+                    ),
+                    DropdownMenuItem(
+                      value: 'User',
+                      child: Text('User'),
+                    ),
+                    DropdownMenuItem(
+                      value: 'Guest',
+                      child: Text('Guest'),
+                    ),
+                    DropdownMenuItem(
+                        value: 'SuperUser',
+                        child: Text(
+                          'SuperUser',
+                        )),
+                  ],
+                  onChanged: (value) => formValues['role'] = value ?? 'Admin',
+                ),
                 ElevatedButton(
                   onPressed: () {
                     FocusScope.of(context).requestFocus(FocusNode());
