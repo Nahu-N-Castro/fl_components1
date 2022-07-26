@@ -7,6 +7,8 @@ class CustomInputField extends StatelessWidget {
   final IconData? icon;
   final IconData? prefixIcon;
   final Color? color;
+  final TextInputType? inputType;
+  final bool obscureText;
 
   const CustomInputField({
     Key? key,
@@ -16,11 +18,15 @@ class CustomInputField extends StatelessWidget {
     this.icon,
     this.prefixIcon,
     this.color,
+    this.inputType,
+    this.obscureText = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: inputType,
+      obscureText: obscureText,
       autofocus: false,
       initialValue: '',
       textCapitalization: TextCapitalization.words,
