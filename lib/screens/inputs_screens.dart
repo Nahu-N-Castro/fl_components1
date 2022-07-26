@@ -21,6 +21,7 @@ class InputsScreen extends StatelessWidget {
                 labelText: 'Nombre',
                 hintText: 'Su Nombre',
                 icon: Icons.person_outline,
+                color: Colors.redAccent,
               ),
             ],
           ),
