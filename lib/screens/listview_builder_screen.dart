@@ -29,15 +29,17 @@ class _ListviewBuilderScreenState extends State<ListviewBuilderScreen> {
 
   Future fetchData() async {
     if (isLoading) return;
-    isLoading = true;
-    setState(() {});
+    setState(() {
+      isLoading = true;
+    });
 
     await Future.delayed(const Duration(seconds: 2));
 
     add10();
 
-    isLoading = false;
-    setState(() {});
+    setState(() {
+      isLoading = false;
+    });
     if (scrollController.position.pixels + 100 <=
         scrollController.position.maxScrollExtent) return;
 
@@ -56,6 +58,14 @@ class _ListviewBuilderScreenState extends State<ListviewBuilderScreen> {
     setState(() {});
   }
 
+  Future<void> onRefresh() async {
+    await Future.delayed(const Duration(seconds: 1));
+    final lastId = imageIds.last;
+    imageIds.clear();
+    imageIds.add(lastId + 1);
+    add10();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -67,20 +77,25 @@ class _ListviewBuilderScreenState extends State<ListviewBuilderScreen> {
           removeBottom: true,
           child: Stack(
             children: [
-              ListView.builder(
-                controller: scrollController,
-                itemCount: imageIds.length,
-                physics: AppTheme.bouncing,
-                itemBuilder: (BuildContext context, int index) {
-                  return FadeInImage(
-                    width: double.infinity,
-                    height: 300,
-                    fit: BoxFit.cover,
-                    placeholder: const AssetImage('assets/jar-loading.gif'),
-                    image: NetworkImage(
-                        'https://picsum.photos/500/300?image=${imageIds[index]}'),
-                  );
-                },
+              RefreshIndicator(
+                color: AppTheme.primary,
+                backgroundColor: Colors.white.withOpacity(0.1),
+                onRefresh: onRefresh,
+                child: ListView.builder(
+                  controller: scrollController,
+                  itemCount: imageIds.length,
+                  physics: AppTheme.bouncing,
+                  itemBuilder: (BuildContext context, int index) {
+                    return FadeInImage(
+                      width: double.infinity,
+                      height: 300,
+                      fit: BoxFit.cover,
+                      placeholder: const AssetImage('assets/jar-loading.gif'),
+                      image: NetworkImage(
+                          'https://picsum.photos/500/300?image=${imageIds[index]}'),
+                    );
+                  },
+                ),
               ),
               if (isLoading)
                 Positioned(
