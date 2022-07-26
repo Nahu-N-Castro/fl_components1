@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
 
 class CustomInputField extends StatelessWidget {
+  final String? labelText;
+  final String? hintText;
+  final String? helperText;
+  final IconData? icon;
+  final IconData? prefixIcon;
+
   const CustomInputField({
     Key? key,
+    this.labelText,
+    this.hintText,
+    this.helperText,
+    this.icon,
+    this.prefixIcon,
   }) : super(key: key);
 
   @override
@@ -17,14 +28,14 @@ class CustomInputField extends StatelessWidget {
         return value.length < 3 ? 'Mínimo 3 caracteres' : null;
       },
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      decoration: const InputDecoration(
-        labelText: 'Nombre',
-        hintText: 'Ingrese su nombre',
-        helperText: 'Solo letras',
+      decoration: InputDecoration(
+        labelText: labelText,
+        hintText: hintText,
+        helperText: helperText,
         // counterText: '3 Caracteres',
         // suffixIcon: Icon(Icons.group_outlined, color: Colors.red),
-        prefixIcon: Icon(Icons.person, color: Colors.red),
-        // icon: Icon(Icons.assignment_ind_outlined, color: Colors.red),
+        prefixIcon: prefixIcon == null ? null : Icon(prefixIcon),
+        icon: icon == null ? null : Icon(icon),
         // focusedBorder: OutlineInputBorder(
         //   borderSide: const BorderSide(color: Colors.red),
         //   borderRadius: BorderRadius.circular(10),
