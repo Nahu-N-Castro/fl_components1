@@ -47,6 +47,8 @@ class AppTheme {
       ),
     ),
   );
+
+  //ToDo: implementar mejor fisica bouncing
   static const BouncingScrollPhysics bouncing = BouncingScrollPhysics(
     parent: AlwaysScrollableScrollPhysics(),
   );
