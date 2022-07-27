@@ -20,7 +20,8 @@ class CustomCardType2 extends StatelessWidget {
       elevation: 10,
       shadowColor: AppTheme.primary.withOpacity(0.3),
       child: Column(
-        children: [
+        children: 
+        [
           FadeInImage(
             image: NetworkImage(imageUrl),
             placeholder: const AssetImage('assets/jar-loading.gif'),
